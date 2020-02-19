@@ -9,3 +9,5 @@ No exemplo inicial temos o seguinte problema: cada vez que adicionamos ou remove
 Criando um interface para adicionar e remover *observers*:
 - *Employer* não precisa mudar quando há mais ou menos *observers*
 - *Employer* não precisa se preocupar com quantos *oberservers* tem, nem mesmo se tem ou não algum.
+
+Mas note que todo esse comportamento não é exclusivo de *Employer*. Ele será exatamente o mesmo para qualquer classe que também precisar ser observada. Poderíamos usar herança, como o prejuízo de que em Ruby uma classe só pode ter uma classe pai, então não poderíamos mais usar herança nessa classe. Outra opção seria construir nosso próprio módulo para usá-lo nas classes ou usar um módulo do Ruby: *Observer*
