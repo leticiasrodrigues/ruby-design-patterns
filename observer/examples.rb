@@ -1,18 +1,12 @@
-require_relative 'payroll'
 require_relative 'employer'
-require_relative 'tax_man'
-
-payroll = Payroll.new
-tax_man = TaxMan.new
 
 pedro = Employer.new('Pedro', 'Professor', 4000)
 
 pedro.salary = 4500
 
-pedro.add_observer(payroll)
+pedro.add_observer do |changed_employee|
+  puts "#{changed_employee.name} mudou de salário!"
+  puts "Agora ele ganha #{changed_employee.salary}"
+end
 
 pedro.salary = 4800
-
-pedro.add_observer(tax_man)
-
-pedro.salary = 5000
