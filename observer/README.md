@@ -10,9 +10,15 @@ Criando um interface para adicionar e remover *observers*:
 - *Employer* não precisa mudar quando há mais ou menos *observers*
 - *Employer* não precisa se preocupar com quantos *observers* tem, nem mesmo se tem ou não algum.
 
+[Implementação](https://github.com/leticiasrodrigues/ruby-design-patterns/commit/19b1e2f79c7551f2d343123e5adb1fbe57509845)
+
 Mas note que todo esse comportamento não é exclusivo de *Employer*. Ele será exatamente o mesmo para qualquer classe que também precisar ser observada. Poderíamos usar herança, como o prejuízo de que em Ruby uma classe só pode ter uma classe pai, então não poderíamos mais usar herança nessa classe. Outra opção seria construir nosso próprio módulo para usá-lo nas classes ou usar um módulo do Ruby: *Observer*.
 
+[Implementação](https://github.com/leticiasrodrigues/ruby-design-patterns/commit/65f657b9522dd627bf7cfdcf45de9ded9f253295)
+
 Esse módulo não recebe blocos, então se quisermos usar isso temos de criar nosso próprio módulo.
+
+[Implementação](https://github.com/leticiasrodrigues/ruby-design-patterns/commit/6400501627e9bfb5c8c5fd90ac6274f3a3ff7960)
 
 A estratégia usada até então é conhecida com *pull method* porque o *observer* pega tudo o que precisa direto o objeto. Outra estratégia é a de *push* em que o objeto já passa algumas informações como parâmetros. Um bom uso para isso seria permitir diferentes observações. A parte negativa é que nem todos *observers* podem precisar das mesmas informações, então teríamos dados desnecessários.
 
