@@ -12,4 +12,8 @@ class Task
   def get_time_required
     0.0
   end
+
+  def total_number_of_basic_tasks
+    1
+  end
 end

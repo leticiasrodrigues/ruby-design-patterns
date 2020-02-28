@@ -14,3 +14,5 @@ Nesse *pattern* podemos identificar primariamente três partes:
 Todas as tarefas herdam a classe *Task* pois todas têm um nome e um tempo de preparo. No casos das classes *composite*, isso ocorre por meio de *CompositeTask* que herda *Task* e assim todas elas se parecem com uma *Task* e tem a funcionalidade de juntar *Tasks*.
 
 Até então, era simples obter as partes de um composto, mas não tão simples descobrir a quem elas pertencem. Isso pode ser feito adicionando uma nova referência na nossa *Task* e atualizando ela cada vez que o componente é adicionado ou removido.
+
+Lembre-se: um *composite* pode ser uma árvore com vários passos entre o topo e as folhas.
