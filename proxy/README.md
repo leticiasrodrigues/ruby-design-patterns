@@ -22,3 +22,12 @@ No geral, também oferece uma clara separação de funções. O proxy atua como 
 
 Esse tipo de proxy retarda a criação do objeto real até o último momento, quando ele efetivamente será utilizado. Isso pode ser feito de duas formas. A primeira é criando o objeto no próprio proxy, que tem como ponto negativo o fato de isso aumentar o acoplamento entre o código e o objeto. O outro é passando a instrução da criação do objeto por meio de de um *block*.
 Novamente temos uma clara separação de funções: o objeto foca em fazer as coisas específicas do domínio enquanto o proxy se preocupa com qual é o momento propício de criá-lo.
+
+## Enviando mensagens
+
+Uma coisa ruim desse *pattern* é que todos os métodos da classe original precisam ser de alguma forma replicados para serem chamados. Para resolver esse problema é necessário relembrar que quando fazemos
+```rb
+object.message(argument)
+```
+o que estamos fazendo não é exatamente chamando um método, mas passando uma mensagem ao objeto com alguns argumentos. A partir disso, o método será buscado na classe, em seus módulos, em sua superclasse, até chegar na superclasse *Object*. A partir daí, ele volta enviando a mensagem *method_missing* até encontrar alguém que responda a ele. Se isso chegar até *Object* teremos o conhecido erro *NoMethodError*.
+No contexto de proxies, isso é útil para duas coisas: podemos diretamente enviar mensagens aos objetos principais (ou invés de chamar métodos) e saber quando um método que não existe foi chamado.

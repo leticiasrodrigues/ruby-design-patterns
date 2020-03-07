@@ -8,25 +8,21 @@ class BankAccountProxy
     @owner_name = owner_name
   end
 
-  def deposite(amount)
+  def method_missing(name, *args)
     check_access
-    subject.deposite(amount)
-  end
-
-  def withdraw(amount)
-    check_access
-    subject.withdraw(amount)
+    puts "Delegating #{name} message to subject"
+    subject.send(name, *args)
   end
 
   private
+
+  def subject
+    @subject || (@subject = @creation_block.call)
+  end
 
   def check_access
     if Etc.getlogin != @owner_name
       raise "Illegal access: #{Etc.getlogin} cannot access account."
     end
-  end
-
-  def subject
-    @subject || (@subject = @creation_block.call)
   end
 end
