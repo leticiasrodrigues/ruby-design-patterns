@@ -26,8 +26,17 @@ Novamente temos uma clara separação de funções: o objeto foca em fazer as co
 ## Enviando mensagens
 
 Uma coisa ruim desse *pattern* é que todos os métodos da classe original precisam ser de alguma forma replicados para serem chamados. Para resolver esse problema é necessário relembrar que quando fazemos
-```rb
+```
 object.message(argument)
 ```
 o que estamos fazendo não é exatamente chamando um método, mas passando uma mensagem ao objeto com alguns argumentos. A partir disso, o método será buscado na classe, em seus módulos, em sua superclasse, até chegar na superclasse *Object*. A partir daí, ele volta enviando a mensagem *method_missing* até encontrar alguém que responda a ele. Se isso chegar até *Object* teremos o conhecido erro *NoMethodError*.
 No contexto de proxies, isso é útil para duas coisas: podemos diretamente enviar mensagens aos objetos principais (ou invés de chamar métodos) e saber quando um método que não existe foi chamado.
+
+Mas cuidado! O proxy em si é um *Object*. Portanto, algo como:
+```
+proxy = BankAccountProxy.new("ltc")  { BankAccount.new(100) }
+puts proxy
+```
+vai enviar a mensagem *to_s* para o proxy, pois vai encotrar esse método em *Object* e, assim, não vai chamar o método *method_missing* e consequentemente não vai chamar o *to_s* no objeto real.
+
+Embora funcione, usar o *method_missing* deixa o código um pouco obscuro e certamente mais lento. Portanto tenha certeza que de é necessário antes de usá-lo.
