@@ -17,3 +17,8 @@ Outra vantagem é que tirando o objeto do cliente nós diminuímos a chance de q
 ## Remote Proxy
 
 No geral, também oferece uma clara separação de funções. O proxy atua como responsável de manipular o envio e recebimento de informação entre o cliente e um servidor, por exemplo, sem que o cliente saiba disso. Essa separação permite uma fácil mudança de protocolos: basta mudar o proxy.
+
+## Virtual Proxy
+
+Esse tipo de proxy retarda a criação do objeto real até o último momento, quando ele efetivamente será utilizado. Isso pode ser feito de duas formas. A primeira é criando o objeto no próprio proxy, que tem como ponto negativo o fato de isso aumentar o acoplamento entre o código e o objeto. O outro é passando a instrução da criação do objeto por meio de de um *block*.
+Novamente temos uma clara separação de funções: o objeto foca em fazer as coisas específicas do domínio enquanto o proxy se preocupa com qual é o momento propício de criá-lo.
