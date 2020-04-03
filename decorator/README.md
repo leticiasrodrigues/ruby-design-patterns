@@ -8,3 +8,5 @@ Os problemas
 - O cliente sempre tem que saber o formato que ele quer, a cada linhas
 - Apenas uma das formatações podem ser utilizada por vez
 - Para usar duas maneiras, teríamos que criar mais métodos com todas as combinações e ordens necessárias
+
+Uma solução para isso é criar decorators para cada um dos formatos desejados.
