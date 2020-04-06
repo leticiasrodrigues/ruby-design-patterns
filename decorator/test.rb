@@ -1,8 +1,8 @@
 require_relative 'enhancedWriter'
 require_relative 'simpleWriter'
-require_relative 'numberingWriter'
-require_relative 'checkSummingWriter'
-require_relative 'timeStampingWriter'
+require_relative 'decorators/numberingWriter'
+require_relative 'decorators/checkSummingWriter'
+require_relative 'decorators/timeStampingWriter'
 
 writer = EnhancedWriter.new('out.txt')
 writer.write_line('A plain line')
