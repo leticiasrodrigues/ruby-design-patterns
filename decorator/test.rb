@@ -3,6 +3,9 @@ require_relative 'simpleWriter'
 require_relative 'decorators/numberingWriter'
 require_relative 'decorators/checkSummingWriter'
 require_relative 'decorators/timeStampingWriter'
+require_relative 'modules/numberingWriter'
+require_relative 'modules/checkSummingWriter'
+require_relative 'modules/timeStampingWriter'
 
 writer = EnhancedWriter.new('out.txt')
 writer.write_line('A plain line')
@@ -20,5 +23,14 @@ writer = CheckSummingWriter.new(
 )
 
 writer.write_line('Usando decorators!')
+writer.write_line('Hello!')
+writer.write_line('Todas as linhas tem um mesmo formato (:')
+
+writer = SimpleWriter.new('out-modules.txt')
+writer.extend(Modules::NumberingWriter)
+writer.extend(Modules::TimeStampingWriter)
+writer.extend(Modules::CheckSummingWriter)
+
+writer.write_line('Agora com módulos!')
 writer.write_line('Hello!')
 writer.write_line('Todas as linhas tem um mesmo formato (:')
