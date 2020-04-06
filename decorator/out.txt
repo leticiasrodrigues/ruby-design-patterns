@@ -1,0 +1,4 @@
+A plain line
+88: A line with checksum
+2020-04-06 18:32:45 -0300: With time stamp
+1: With line number
