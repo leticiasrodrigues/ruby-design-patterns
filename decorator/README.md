@@ -11,4 +11,4 @@ Os problemas
 
 Uma solução para isso é criar decorators para cada um dos formatos desejados. O princípio básico do decorator é delegar, por isso podemos ver vários nele que simplesmente são delegados para a classe principal. Para que isso não precise ser feito na mão, podemos usar o módulo _forwardable_.
 
-Uma outra forma de obter o mesmo resultado é adicionando os novos métodos nas instâncias.
+Uma outra forma de obter o mesmo resultado é adicionando os novos métodos nas instâncias, com _extend_ ou com _wraping methods_.

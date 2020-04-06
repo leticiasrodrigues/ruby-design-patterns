@@ -34,3 +34,17 @@ writer.extend(Modules::CheckSummingWriter)
 writer.write_line('Agora com módulos!')
 writer.write_line('Hello!')
 writer.write_line('Todas as linhas tem um mesmo formato (:')
+
+writer = SimpleWriter.new('out-wrap.txt')
+
+class << writer
+  alias old_write_line write_line
+
+  def write_line(line)
+    old_write_line("#{Time.new}: #{line}")
+  end
+end
+
+writer.write_line('Agora com wrapping methods!')
+writer.write_line('Hello!')
+writer.write_line('Todas as linhas tem um mesmo formato (:')
