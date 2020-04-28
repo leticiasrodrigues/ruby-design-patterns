@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'animals'
+
 class Pond
   def initialize(number_animals)
     @animals = []
@@ -15,3 +17,21 @@ class Pond
     @animals.each { |animal| animal.sleep }
   end
 end
+
+class FrogPond < Pond
+  def new_animal(name)
+    Frog.new(name)
+  end
+end
+
+class DuckPond < Pond
+  def new_animal(name)
+    Duck.new(name)
+  end
+end
+
+pond = FrogPond.new(3)
+pond.simulate_one_day
+
+pond = DuckPond.new(2)
+pond.simulate_one_day
