@@ -1,0 +1,4 @@
+INFO: Me: #<SimpleLogger:0x00007fa69203f8f0>, also me: #<SimpleLogger:0x00007fa69203f8f0>
+ERROR: Error message
+WARNING: Warning message
+INFO: Info message
