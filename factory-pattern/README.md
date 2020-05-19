@@ -19,3 +19,8 @@ No entanto, imagine que além de animais desejemos adicionar plantas a lagoa, de
 - Passar a classe como parâmetro
 
 Mas os requerimentos não param de crescer e agora, além de uma lagoa, queremos uma selva, também com animais e plantas, com exatamente as mesmas interfaces. Da maneira que fizemos isso é simples: basta a classe Pond ser algo mais genérico, como Habitat, e todo o resto funciona normalmente.
+
+Dessa forma qualquer combinação é possível. Mas se eu tiver um número restrito de combinações, mas classes, etc... posso delegar a responsabilidade de criar grupos compatíveis a um outro objeto. Nesse caso teríamos um outro pattern, que é o **Abstract Factory Pattern**.
+
+# Abstract Factory Pattern
+Nesse pattern temos uma classe que é responsável por criar os objetos que queremos, que é passada para quem deseja criá-los, muito semelhante ao *strategy pattern*.
