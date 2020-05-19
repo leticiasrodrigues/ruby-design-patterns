@@ -37,3 +37,22 @@ class Frog
     puts("Frog #{@name} does not sleep, he croaks all night")
   end
 end
+
+class Tiger
+  def initialize(name)
+    @name = name
+  end
+
+  def eat
+    puts("Tiger #{@name} eats anything it wants")
+  end
+
+
+  def speak
+    puts("Frog #{@name} Roars!")
+  end
+
+  def sleep
+    puts("Frog #{@name} sleeps anywhere it wants")
+  end
+end

@@ -20,3 +20,13 @@ class Algae
     puts("The algae #{@name} soaks up the sun, and grows")
   end
 end
+
+class Tree
+  def initialize(name)
+    @name = name
+  end
+
+  def grow
+    puts("The tree #{@name} grows tall")
+  end
+end
